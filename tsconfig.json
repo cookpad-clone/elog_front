@@ -9,25 +9,35 @@
       "dom"
     ],
     "esModuleInterop": true,
+    "importHelpers": true,
     "allowJs": true,
     "sourceMap": true,
     "strict": true,
     "noEmit": true,
     "experimentalDecorators": true,
-    "baseUrl": "./src",
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
     "paths": {
       "~/*": [
-        "./*"
+        "src/*"
       ],
       "@/*": [
-        "./*"
+        "src/*"
       ]
     },
     "types": [
       "@types/node",
-      "@nuxt/types"
+      "@nuxt/types",
+      "webpack-env"
     ]
   },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.js",
+    "src/**/*.vue",
+    "tests/**/*.ts",
+    "tests/**/*.js"
+  ],
   "exclude": [
     "node_modules",
     ".nuxt",

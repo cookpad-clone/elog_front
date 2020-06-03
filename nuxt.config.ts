@@ -22,18 +22,24 @@ const config: Configuration = {
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
-  /*
+  /*.
    ** Customize the progress-bar color
    */
   loading: { color: '#fff' },
   /*
    ** Global CSS
    */
-  css: [],
+  css: [
+    '~assets/main.css'
+  ],
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: [
+    { src: '~/plugins/notifications-ssr', mode: 'server' },
+    { src: '~/plugins/notifications-client', mode: 'client' },
+    { src: '~/plugins/fragment', mode: 'all' },
+  ],
   /*
    ** Nuxt.js dev-modules
    */
@@ -57,7 +63,7 @@ const config: Configuration = {
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
     theme: {
-      dark: true,
+      dark: false,
       themes: {
         dark: {
           primary: colors.blue.darken2,
@@ -67,6 +73,9 @@ const config: Configuration = {
           warning: colors.amber.base,
           error: colors.deepOrange.accent4,
           success: colors.green.accent3
+        },
+        light: {
+          background: '#FF0000'
         }
       }
     }
