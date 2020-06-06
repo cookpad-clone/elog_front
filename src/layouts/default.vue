@@ -7,6 +7,7 @@
         <main class="main-content">
           <nuxt />
         </main>
+        <e-side-menu/>
         <!--        <e-navigation/>-->
       </div>
     </div>
@@ -18,12 +19,14 @@
 import ElogHeader from '~/components/Header.vue'
 import ETab from '~/components/Tab.vue'
 import ENavigation from '~/components/Navigation.vue'
+import ESideMenu from '~/components/SideMenu.vue'
 
 export default {
   components: {
     ElogHeader,
     ETab,
-    ENavigation
+    ENavigation,
+    ESideMenu
   }
 }
 </script>
