@@ -1,13 +1,20 @@
 <template>
-  <v-layout column justify-center align-center>
-
-  </v-layout>
+  <div class="dashboard-list">
+    <card/>
+    <card/>
+    <card/>
+    <card/>
+  </div>
 </template>
 
 <script>
 import auth from '~/middleware/auth'
+import Card from '~/components/Card'
 
 export default {
+  components: {
+    Card
+  },
   middleware: [auth],
   mounted() {
     this.$notify({
@@ -20,3 +27,10 @@ export default {
   }
 }
 </script>
+<style>
+.dashboard-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -1rem;
+}
+</style>

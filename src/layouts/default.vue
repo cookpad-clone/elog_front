@@ -1,10 +1,15 @@
 <template>
   <fragment>
     <elog-header />
-    <main>
+    <div class="content">
       <e-tab />
-      <nuxt />
-    </main>
+      <div class="dashboard">
+        <main class="main-content">
+          <nuxt />
+        </main>
+        <!--        <e-navigation/>-->
+      </div>
+    </div>
     <notifications group="admin-noti" />
   </fragment>
 </template>
@@ -12,43 +17,53 @@
 <script>
 import ElogHeader from '~/components/Header.vue'
 import ETab from '~/components/Tab.vue'
+import ENavigation from '~/components/Navigation.vue'
 
 export default {
   components: {
     ElogHeader,
-    ETab
+    ETab,
+    ENavigation
   }
 }
 </script>
 <style>
-main {
+.content {
   width: 1728px;
   margin-left: auto;
   margin-right: auto;
 }
 @media (max-width: 1919px) {
-  main {
+  .content {
     width: 1376px;
   }
 }
 @media (max-width: 1440px) {
-  main {
+  .content {
     width: 1312px;
   }
 }
 @media (max-width: 1312px) {
-  main {
+  .content {
     width: 912px;
   }
 }
 @media (max-width: 944px) {
-  main {
+  .content {
     width: calc(100% - 2rem);
   }
 }
 @media (max-width: 767px) {
-  main {
+  .content {
     width: calc(100% - 2rem);
   }
+}
+.dashboard {
+  display: flex;
+  margin-top: 2rem;
+}
+
+.main-content {
+  flex: 1 1 0;
 }
 </style>
