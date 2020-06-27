@@ -1,7 +1,7 @@
 <template>
-  <header>
+  <header class="user-header">
     <div class="in-header">
-      <div>
+      <div class="group-logo">
         <!--글 작성자-->
         <nuxt-link to="/">
           <svg width="192" height="192" viewBox="0 0 192 192" fill="none">
@@ -12,11 +12,11 @@
             ></path>
           </svg>
         </nuxt-link>
-        <nuxt-link :to="user.id">{{ user.name }}</nuxt-link>
+        <nuxt-link class="user-logo" :to="user.id">{{ user.name }}</nuxt-link>
       </div>
-      <div>
+      <div class="group-profile">
         <!--사용자-->
-        <nuxt-link :to="`/search?username=${user.id}`">
+        <nuxt-link class="user-search" :to="`/search?username=${user.id}`">
           <svg width="17" height="17" viewBox="0 0 17 17">
             <path
               fill-rule="evenodd"
@@ -25,11 +25,11 @@
             ></path>
           </svg>
         </nuxt-link>
-        <button color="darkGray" style="margin-right: 1.25rem;">
+        <button class="write-post" color="darkGray" style="margin-right: 1.25rem;">
           새 글 작성
         </button>
         <div>
-          <div class="sc-jzJRlG bizmYl">
+          <div class="profile">
             <img
               src="https://media.vlpt.us/images/iha/profile/792ff2ed-911f-4771-a132-2530cdce02c9/social.png?w=120"
               alt="thumbnail"
@@ -63,14 +63,148 @@ export default {
 }
 </script>
 <style>
-header {
+.user-header {
   height: 4rem;
 }
 
 .in-header {
   height: 100%;
   display: flex;
+  -webkit-box-align: center;
   align-items: center;
+  -webkit-box-pack: justify;
   justify-content: space-between;
+  width: 1728px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.group-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: rgb(52, 58, 64);
+  font-size: 1.3125rem;
+  font-family: "Fira Mono", monospace;
+  text-decoration: none;
+}
+
+.group-logo a {
+  display: flex;
+  align-items: center;
+  color: inherit;
+  text-decoration: none;
+}
+.group-logo a svg {
+  margin-right: 1rem;
+  width: 1.75rem;
+  height: 1.75rem;
+  display: block;
+}
+
+.group-logo .user-logo {
+  display: block;
+  max-width: calc(100vw - 200px);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.group-profile {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  position: relative;
+}
+.user-search {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  cursor: pointer;
+  margin-right: 0.75rem;
+  background: transparent;
+  border-width: initial;
+  border-style: none;
+  border-color: initial;
+  border-image: initial;
+  outline: none;
+  border-radius: 50%;
+}
+.user-search svg {
+  width: 1.125rem;
+  height: 1.125rem;
+}
+
+.write-post {
+  height: 2rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  word-break: keep-all;
+  color: rgb(52, 58, 64);
+  cursor: pointer;
+  border-radius: 1rem;
+  outline: none;
+  background: white;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(52, 58, 64);
+  border-image: initial;
+  transition: all 0.125s ease-in 0s;
+}
+.profile {
+  cursor: pointer;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+}
+.profile img {
+  display: block;
+  height: 2.5rem;
+  width: 2.5rem;
+  box-shadow: rgba(0, 0, 0, 0.086) 0px 0px 8px;
+  object-fit: cover;
+  border-radius: 50%;
+  transition: all 0.125s ease-in 0s;
+}
+.profile svg {
+  font-size: 1.5rem;
+  margin-left: 0.25rem;
+  color: rgb(134, 142, 150);
+  margin-right: -0.4375rem;
+  transition: all 0.125s ease-in 0s;
+}
+
+@media (max-width: 1919px) {
+  .in-header {
+    width: 1376px;
+  }
+}
+@media (max-width: 1440px) {
+  .in-header {
+    width: 1280px;
+  }
+}
+@media (max-width: 1312px) {
+  .in-header {
+    width: 912px;
+  }
+}
+@media (max-width: 944px) {
+  .in-header {
+    width: calc(100% - 2rem);
+  }
+}
+@media (max-width: 767px) {
+  .in-header {
+    width: calc(100% - 2rem);
+  }
 }
 </style>
