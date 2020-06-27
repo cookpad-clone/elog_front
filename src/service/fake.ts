@@ -30,7 +30,7 @@ export function createFakeCardData(cnt: number) {
         min: 0,
         max: 1000
       }),
-      cdt: fake.date()
+      cdt: new Date(fake.date())
     })
   }
   return res
