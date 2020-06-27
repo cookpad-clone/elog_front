@@ -1,15 +1,22 @@
 <template>
   <div class="dashboard-list">
-    <card/>
-    <card/>
-    <card/>
-    <card/>
+    <card v-for="(card, index) in cardData"
+          :key="index"
+          :title="card.title"
+          :img-url="card.imgUrl"
+          :content="card.content"
+          :register-user="card.registerUser"
+          :register-user-img-url="card.registerUserImgUrl"
+          :cnt-comment="card.cntComment"
+          :cnt-like="card.cntLike"
+    />
   </div>
 </template>
 
-<script>
+<script lang="js">
 import auth from '~/middleware/auth'
 import Card from '~/components/Card'
+import { createFakeCardData } from '~/service/fake'
 
 export default {
   components: {
@@ -24,6 +31,11 @@ export default {
       duration: 2000,
       speed: 400
     })
+  },
+  data() {
+    return {
+      cardData: createFakeCardData(10)
+    }
   }
 }
 </script>

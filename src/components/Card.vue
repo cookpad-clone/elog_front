@@ -2,40 +2,79 @@
   <div class="dashboard-item">
     <nuxt-link to="/" class="dashboard-item-img-link">
       <div class="dashboard-item-img">
-        <img src="https://media.vlpt.us/images/mowinckel/post/c767d8ed-7c23-4a17-95d7-ea4c413e06c9/R1280x0.jpeg?w=640"/>
+        <img :src="imgUrl"/>
       </div>
     </nuxt-link>
     <div class="dashboard-item-title">
       <nuxt-link to="/" class="dashboard-item-title-link">
-        <h4>✏️ 와디즈 SW 인턴후 넋두리++</h4>
+        <h4>{{title}}</h4>
         <div class="dashboard-item-title-desc">
-          <p>와디즈에서 인턴 했던 시절이 떠올라서 그 때 이후 이 업계에서 느낀바를 두서 없이 써 본다.
+          <p>{{content}}
           </p>
         </div>
       </nuxt-link>
       <div class="dashboard-item-title-date">
-        <span>2020년 5월 10일</span>
+        <span>{{formatDateToString(cdt)}}</span>
         <span class="separator">·</span>
-        <span>30개의 댓글</span>
+        <span>{{cntComment}}개의 댓글</span>
       </div>
     </div>
     <div class="dashboard-item-author">
       <nuxt-link to="/" class="user-info">
-        <img src="https://media.vlpt.us/images/mowinckel/profile/0e635852-b742-424e-9a69-604f83f5efb3/-.png?w=120" alt="user thumbnail of mowinckel"/>
+        <img :src="registerUserImgUrl" :alt="registerUser"/>
         <span>
-          by <b>mowinckel</b>
+          by <b>{{registerUser}}</b>
         </span>
       </nuxt-link>
       <div class="likes">
         <svg width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M18 1l-6 4-6-4-6 5v7l12 10 12-10v-7z"></path></svg>
-        105
+        {{cntLike}}
       </div>
     </div>
   </div>
 </template>
 <script>
+import moment from 'moment'
 export default {
-
+  props: {
+    imgUrl: {
+      type: String,
+      required: true
+    },
+    title: {
+      type: String,
+      required: true
+    },
+    content: {
+      type: String,
+      required: true
+    },
+    registerUser: {
+      type: String,
+      required: true
+    },
+    registerUserImgUrl: {
+      type: String,
+      required: true
+    },
+    cntComment: {
+      type: Number,
+      required: true
+    },
+    cntLike: {
+      type: Number,
+      required: true
+    },
+    cdt: {
+      type: Date,
+      required: true
+    }
+  },
+  methods: {
+    formatDateToString() {
+      return moment(this.cdt).format('YYYY년 MM월 DD일')
+    }
+  }
 }
 </script>
 <style>
