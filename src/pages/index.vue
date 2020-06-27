@@ -9,6 +9,7 @@
           :register-user-img-url="card.registerUserImgUrl"
           :cnt-comment="card.cntComment"
           :cnt-like="card.cntLike"
+          :cdt="card.cdt"
     />
   </div>
 </template>
